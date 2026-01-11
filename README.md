@@ -68,10 +68,32 @@ JWT_SECRET_KEY=super-dev-jwt-secret-change-me
 3. **Backend**
 
    ```bash
-   cd backend
-   pip install -r requirements.txt
-   flask db upgrade     # run migrations to create tables
-   flask run             # starts at http://localhost:5000
+cd backend
+
+# Activate virtual environment
+source ../venv/bin/activate  # On macOS/Linux
+# OR
+..\venv\Scripts\activate     # On Windows
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Set PYTHONPATH to avoid import errors
+export PYTHONPATH=/path/to/volunteer-app/backend:$PYTHONPATH  # On macOS/Linux
+# OR
+set PYTHONPATH=C:\path\to\volunteer-app\backend;%PYTHONPATH%  # On Windows
+
+# Run database migrations
+# If you encounter "multiple heads" error, run these commands:
+flask db stamp c80074fb66b1
+flask db stamp cc63c1ca15b1
+flask db upgrade fae995670737
+
+# Otherwise, simply run:
+flask db upgrade
+
+# Start the Flask server (runs at http://localhost:5000)
+flask run
    ```
 
 4. **Frontend**
