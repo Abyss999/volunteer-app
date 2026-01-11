@@ -67,7 +67,7 @@ JWT_SECRET_KEY=super-dev-jwt-secret-change-me
 
 3. **Backend**
 
-   ```bash
+```bash
 cd backend
 
 # Activate virtual environment
@@ -94,7 +94,7 @@ flask db upgrade
 
 # Start the Flask server (runs at http://localhost:5000)
 flask run
-   ```
+```
 
 4. **Frontend**
 
